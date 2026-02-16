@@ -3,11 +3,11 @@
 import Link from "next/link";
 import SearchBar from "./searchbar";
 import { Button } from "./ui/button";
-import { useGetUser } from "@/lib/auth";
+import { useAuthUser } from "@/lib/auth";
 import HeaderUser from "./header-user";
 
 export function Header() {
-  const { user } = useGetUser();
+  const { user } = useAuthUser();
 
   return (
     <div className="flex items-center justify-center gap-10 py-4 border-b">
@@ -22,7 +22,7 @@ export function Header() {
               <Link href={"/login"}>Login</Link>
             </Button>
             <Button variant="outline" className="rounded-xl">
-              <Link href={"/registrasi"}>Registrasi</Link>
+              <Link href={"/register"}>Register</Link>
             </Button>
           </div>
         )}

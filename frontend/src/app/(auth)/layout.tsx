@@ -1,12 +1,12 @@
 "use client";
 
-import { useGetUser } from "@/lib/auth";
+import { useAuthUser } from "@/lib/auth";
 import { useRouter } from "next/navigation";
 import { Spinner } from "@/components/ui/spinner";
 import { PropsWithChildren, useEffect } from "react";
 
 export default function AuthLayout({ children }: PropsWithChildren) {
-  const { user, isLoading } = useGetUser();
+  const { user, isLoading } = useAuthUser();
   const router = useRouter();
 
   useEffect(() => {
@@ -17,7 +17,7 @@ export default function AuthLayout({ children }: PropsWithChildren) {
 
   if (isLoading) {
     return (
-      <div className="w-full h-screen">
+      <div className="w-full h-screen flex items-center justify-center">
         <Spinner className="size-10" />
       </div>
     );
